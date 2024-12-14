@@ -1,0 +1,22 @@
+﻿@model Account
+
+<body>
+    <div class="container mt-4">
+        <h2>Edit Account</h2>
+        <form asp-action="Edit" asp-controller="Account" method="post">
+            
+            <input type="hidden" id="AccountName" name="AccountName" value="@Model.AccountName" />
+            <div class="mb-3">
+                <label for="AccountName" class="form-label">Account Name</label>
+                <input type="text" class="form-control" id="AccountName" name="AccountName" value="@Model.AccountName" readonly />
+            </div>
+            <div class="mb-3">
+                <label for="Balance" class="form-label">Balance</label>
+                <input type="number" class="form-control" id="Balance" name="Balance" value="@Model.Balance" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="@Url.Action("AccountList", "Account")" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+

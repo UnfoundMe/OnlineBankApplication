@@ -1,0 +1,28 @@
+﻿@using OnlineBankApplication.Dto;
+@model TransactionDto
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>TransactionId</th>
+            <th>FromAccountName</th>
+            <th>ToAccountName</th>
+            <th>Amount</th>
+            <th>FromAccountBalance</th>
+            <th>ToAccountBalance</th>
+            <th>TransactionDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.TransactionId</td>
+            <td>@Model.FromAccountName</td>
+            <td>@Model.ToAccountName</td>
+            <td>@Model.Amount</td>
+            <td>@Model.FromAccountBal</td>
+            <td>@Model.ToAccountBal</td>
+            <td>@Model.TransactionDate</td>
+        </tr>
+        <a href="@Url.Action("Transactions", "Transaction")" class="btn btn-sm btn-secondary">Back</a>
+    </tbody>
+</table>

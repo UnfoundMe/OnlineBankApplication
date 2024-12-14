@@ -1,0 +1,42 @@
+﻿<body>
+    <div class="container mt-4">
+        <h2>Transfer Funds</h2>
+        <form asp-action="TransferFunds" asp-controller="Transaction" method="post">
+            <div class="mb-3">
+                <label for="fromAcctName" class="form-label">From Account</label>
+                <select class="form-select" id="fromAcctName" name="fromAcctName" required>
+                    @foreach (var account in ViewBag.accounts)
+                    {
+                        <option value="@account.AccountName">@account.AccountName</option>                        
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="toAcctName" class="form-label">To Account</label>
+                <select class="form-select" id="toAcctName" name="toAcctName" required>
+                    @foreach (var account in ViewBag.accounts)
+                    {
+                        <option value="@account.AccountName">@account.AccountName</option>                        
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Amount" class="form-label">Amount to Transfer</label>
+                <input type="number" class="form-control" id="Amount" name="Amount" min="1" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Transfer</button>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-sm btn-warning">Cancel</a>
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById("Transfer").addEventListener("click", function (event) {
+        const fromAccount = document.getElementById("FromAccount").value;
+        const toAccount = document.getElementById("ToAccount").value;
+
+        if (fromAccount === toAccount) {
+            event.preventDefault(); // Prevent form submission
+            alert("From Account and To Account cannot be the same. Please select different accounts.");
+        }
+    });
+</script>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center"> 
+    
+
+
+
+    <div class="container">
+        <h1>Welcome to the Online Banking System</h1>
+        <a asp-action="AccountList" asp-controller="Account" class="btn">View all Accounts</a>
+        <a asp-action="Transfer" asp-controller="Transaction" class="btn">Initiate a Transfer</a>
+        <a asp-action="Transactions" asp-controller="Transaction" class="btn">View all Transactions </a>
+    </div>
+</div>
+
